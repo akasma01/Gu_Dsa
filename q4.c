@@ -1,0 +1,127 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+// struct name{
+//     char f_name[10],m_name[10],l_name[10];
+// };
+
+struct dob{
+    int day,month,year;
+};
+
+// struct marks{
+//     int eng,math,science;
+// };
+
+struct student
+{
+    int r_no;
+    // struct name n;
+    char name[30],gender[10];
+    char grade;
+    struct dob d;
+    int marks[3],aggr[3];
+
+
+};
+
+void main()
+{
+    struct student s1[2];
+    struct dob d1;
+    char match[30];
+    int i=0;
+    int j=0,k=0,a;
+    for(i=0;i<2;i++)
+    {
+    printf("Enter details of the student %d:-\n",i+1);
+    printf("Enter Roll No. of the student\n");
+    scanf("%d",&s1[i].r_no);
+    printf("Enter Name of the student\n");
+    scanf("%s",&s1[i].name); 
+    // printf("Enter middle name of the student\n");
+    // scanf("%s",&s1[i].n.m_name);
+    // printf("Enter last name of the student\n");
+    // scanf("%s",&s1[i].n.l_name);
+    printf("Enter Gender of the student\n");
+    scanf("%s",&s1[i].gender);
+    printf("Please enter birth details of the student %d:-\n",i+1);
+    printf("Enter Day\n");
+    scanf("%d",&s1[i].d.day);
+    printf("Enter Month\n");
+    scanf("%d",&s1[i].d.month);
+    printf("Enter Year\n");
+    scanf("%d",&s1[i].d.year);
+    printf("Enter students English marks\n");
+    scanf("%d",&s1[i].marks[0]);
+    printf("Enter students Maths marks\n");
+    scanf("%d",&s1[i].marks[1]);
+    printf("Enter students Science marks\n");
+    scanf("%d",&s1[i].marks[2]);
+    a = (s1[i].marks[0]+s1[i].marks[1]+s1[i].marks[2])/3;
+    s1[i].aggr[i]=a;
+        if(a>90)
+        {
+        s1[i].grade = 'A';
+        }   
+        else if (a>=70&&a<=90)
+        {
+        s1[i].grade = 'B';
+        }
+        else if (a>=50&&a<=70)
+        {
+        s1[i].grade = 'C';
+        }
+        else
+        {
+         s1[i].grade = 'D';
+        }
+    }
+    
+
+
+//    printf("Students whose aggregate is less than 40\n");
+//    printf("Roll No. Name Gender\t   DOB\t      English  Maths  Science   Grade\n");
+// for(i=0;i<2;i++)
+// {   
+//     if(s1[i].aggr[i]<40)
+//     {
+//         printf("%d\t  %s\t%s\t%d %d %d\t %d\t %d\t %d      %c\n",s1[i].r_no,s1[i].name,s1[i].gender,s1[i].d.day,s1[i].d.month,s1[i].d.year,s1[i].marks[0],s1[i].marks[1],s1[i].marks[2],s1[i].grade);
+//         k=1;
+//     }
+// }
+//         if(k==0)
+//     {
+//         printf("Sorry No Records Found...\n");
+//     }
+
+
+   printf("Enter the DOB to find matching records\n");
+    printf("Enter Day\n");
+    scanf("%d",&d1.day);
+    printf("Enter Month\n");
+    scanf("%d",&d1.month);
+    printf("Enter Year\n");
+    scanf("%d",&d1.year);
+
+    printf("Roll No. Name Gender\t   DOB\t      English  Maths  Science   Grade\n");
+    for(i=0;i<2;i++)
+    {
+        if((s1[i].d.day==d1.day)&&(s1[i].d.month==d1.month)&&(s1[i].d.year==d1.year))
+        {
+        printf("%d\t  %s\t%s\t%d-%d-%d\t %d\t %d\t %d      %c\n",s1[i].r_no,s1[i].name,s1[i].gender,s1[i].d.day,s1[i].d.month,s1[i].d.year,s1[i].marks[0],s1[i].marks[1],s1[i].marks[2],s1[i].grade);
+            j=1;
+        }
+    }
+        
+    if(j==0)
+    {
+        printf("Sorry No Records Found...\n");
+    }
+    // for(i=0;i<2;i++)
+    // {
+    // printf("%d\t%s\t%s\t%d %d %d\t\t %d\t %d\t %d",s1[i].r_no,s1[i].name,s1[i].gender,s1[i].d.day,s1[i].d.month,s1[i].d.year,s1[i].marks[0],s1[i].marks[1],s1[i].marks[2]);
+    // }
+getch();
+}
