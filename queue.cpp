@@ -11,7 +11,7 @@ void insert()
 	cout<<"queue overflow\n";
 	else
 	{
-		if front==-1;
+		if(front==-1);
 		front=0;
 		cout<<"Insert the element in the queue\n";
 		cin>>val;
@@ -20,13 +20,11 @@ void insert()
 	}
 }
 
-void delete()
+void del()
 {
 	if(front=-1||front>rear)
 	{
-	
 	cout<<"Queue Underflow\n";
-	return;
 	}
 	else
 	{
@@ -39,10 +37,38 @@ void delete()
 
 void display()
 {
-	if(front=-1)
+	if(front==-1)
 	cout<<"The queue is empty\n";
 	else
 	{
-		cout<<"the queue elements are 
+		cout<<"the queue elements are :\n";
+		for(int i=front;i<=rear;i++)
+		{
+			cout<<queue[i]<" \n";
+		}
 	}
+}
+
+int main() {
+   int ch;
+   cout<<"1) Insert element to queue\n"<<endl;
+   cout<<"2) Delete element from queue\n"<<endl;
+   cout<<"3) Display all the elements of queue\n"<<endl;
+   cout<<"4) Exit\n"<<endl;
+   do {
+      cout<<"Enter your choice :\n "<<endl;
+      cin>>ch;
+      switch (ch) {
+         case 1: insert();
+         break;
+         case 2: del();
+         break;
+         case 3: display();
+         break;
+         case 4: cout<<"Exit\n"<<endl;
+         break;
+         default: cout<<"Invalid choice\n"<<endl;
+      }
+   } while(ch!=4);
+   return 0;
 }
